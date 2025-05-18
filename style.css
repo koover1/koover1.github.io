@@ -1,0 +1,124 @@
+/* Basic Reset and Body Styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Modern sans-serif stack */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f8f8; /* Lighter background than previous */
+    color: #333;
+    min-height: 100vh;
+    display: flex; /* Use flexbox for body to center the container */
+    justify-content: center;
+    align-items: flex-start; /* Align container to the top */
+}
+
+/* Container for the two-column layout */
+.container {
+    display: flex; /* Enable flexbox for the main layout */
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    width: 100%;
+    max-width: 960px; /* Max width for the entire content area */
+    background-color: #fff; /* White background for the content area */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly more pronounced shadow */
+    border-radius: 8px;
+    overflow: hidden; /* Contains floated elements (if any) and border-radius */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    flex: 1 1 250px; /* Flex properties: grow, shrink, base-width */
+    padding: 30px 20px; /* Adjust padding */
+    background-color: #e9e9eb; /* Distinct background color for sidebar */
+    color: #1a1a1a; /* Darker text for contrast */
+    border-right: 1px solid #ccc; /* Separator line */
+}
+
+.sidebar h1 {
+    color: #0052cc; /* UC Berkeley blue */
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 20px;
+    text-align: left; /* Align name to the left */
+    font-size: 1.8em; /* Slightly larger name */
+}
+
+/* Sidebar Navigation */
+.sidebar nav ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px; /* Space out list items */
+}
+
+.sidebar nav a {
+    text-decoration: none; /* Remove underline */
+    color: #0052cc; /* Link color */
+    font-weight: bold;
+    display: block; /* Make the whole area clickable */
+    padding: 5px 0; /* Add some padding around links */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.sidebar nav a:hover {
+    color: #003399; /* Darker color on hover */
+}
+
+/* Main Content Styling */
+.main-content {
+    flex: 2 1 400px; /* Main content takes more space */
+    padding: 30px; /* Padding inside the main content area */
+}
+
+.main-content h2, .main-content h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.main-content p {
+    margin-bottom: 15px;
+}
+
+.main-content ul {
+     margin-bottom: 15px; /* Space after lists */
+}
+
+.main-content a {
+    color: #0052cc; /* Link color */
+    text-decoration: none;
+}
+
+.main-content a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+
+    .sidebar {
+        border-right: none; /* Remove vertical border */
+        border-bottom: 1px solid #ccc; /* Add horizontal border */
+        text-align: center; /* Center sidebar content */
+    }
+
+    .sidebar h1 {
+         text-align: center; /* Center name on small screens */
+    }
+
+    .sidebar nav ul {
+        margin-top: 15px;
+    }
+
+    .sidebar nav ul li {
+         display: inline-block; /* Display links inline */
+         margin: 0 10px 10px 10px; /* Add horizontal margin */
+    }
+
+    .main-content {
+        padding-top: 20px; /* Add some space above main content */
+    }
+}
