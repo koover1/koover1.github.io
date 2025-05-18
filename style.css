@@ -3,34 +3,41 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Modern sans-serif stack */
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
+    /* Increased padding slightly to prevent edge stickiness on very wide screens */
+    padding: 30px;
     background-color: #f8f8f8; /* Lighter background than previous */
     color: #333;
     min-height: 100vh;
     display: flex; /* Use flexbox for body to center the container */
-    justify-content: center;
-    align-items: flex-start; /* Align container to the top */
+    justify-content: center; /* Centers the container horizontally if its width is less than body's width (which won't happen with width: 100%) */
+    align-items: flex-start; /* Align container to the top vertically */
 }
 
 /* Container for the two-column layout */
 .container {
     display: flex; /* Enable flexbox for the main layout */
     flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
-    width: 100%;
-    max-width: 960px; /* Max width for the entire content area */
+    width: 100%; /* Container takes 100% of the body's width (minus body padding) */
+    /* Removed max-width: 960px; to allow it to fill more of the screen */
+    min-height: 100vh; /* <-- ADD THIS LINE */
     background-color: #fff; /* White background for the content area */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly more pronounced shadow */
     border-radius: 8px;
     overflow: hidden; /* Contains floated elements (if any) and border-radius */
+    /* On very wide screens, this will stretch. You could add a max-width here if you want a limit, e.g., max-width: 1400px; */
 }
 
 /* Sidebar Styling */
 .sidebar {
-    flex: 1 1 250px; /* Flex properties: grow, shrink, base-width */
+    /* flex-basis: 250px; - Gives it a base size */
+    /* flex-grow: 1; - Allows it to grow */
+    /* flex-shrink: 1; - Allows it to shrink */
+    flex: 1 1 250px; /* Combined flex property: grow, shrink, base-width */
     padding: 30px 20px; /* Adjust padding */
     background-color: #e9e9eb; /* Distinct background color for sidebar */
     color: #1a1a1a; /* Darker text for contrast */
     border-right: 1px solid #ccc; /* Separator line */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .sidebar h1 {
@@ -45,6 +52,7 @@ body {
 .sidebar nav ul {
     list-style: none; /* Remove bullet points */
     padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
 }
 
 .sidebar nav ul li {
@@ -66,8 +74,12 @@ body {
 
 /* Main Content Styling */
 .main-content {
+    /* flex-basis: 400px; - Gives it a base size */
+    /* flex-grow: 2; - Allows it to grow (twice as much as sidebar if needed) */
+    /* flex-shrink: 1; - Allows it to shrink */
     flex: 2 1 400px; /* Main content takes more space */
     padding: 30px; /* Padding inside the main content area */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .main-content h2, .main-content h3 {
@@ -82,6 +94,11 @@ body {
 
 .main-content ul {
      margin-bottom: 15px; /* Space after lists */
+     padding-left: 20px; /* Add padding for list bullets */
+}
+
+.main-content li {
+    margin-bottom: 5px;
 }
 
 .main-content a {
@@ -111,6 +128,7 @@ body {
 
     .sidebar nav ul {
         margin-top: 15px;
+        margin-bottom: 0; /* Remove bottom margin when inline */
     }
 
     .sidebar nav ul li {
@@ -120,5 +138,10 @@ body {
 
     .main-content {
         padding-top: 20px; /* Add some space above main content */
+    }
+
+    /* Adjust body padding for smaller screens if needed */
+    body {
+        padding: 15px;
     }
 }
