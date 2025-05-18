@@ -1,85 +1,73 @@
-/* Basic Reset and Body Styling */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Modern sans-serif stack */
     line-height: 1.6;
     margin: 0;
-    /* Increased padding slightly to prevent edge stickiness on very wide screens */
     padding: 30px;
-    background-color: #f8f8f8; /* Lighter background than previous */
+    background-color: #f8f8f8;
     color: #333;
     min-height: 100vh;
-    display: flex; /* Use flexbox for body to center the container */
-    justify-content: center; /* Centers the container horizontally if its width is less than body's width (which won't happen with width: 100%) */
-    align-items: flex-start; /* Align container to the top vertically */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-/* Container for the two-column layout */
 .container {
-    display: flex; /* Enable flexbox for the main layout */
-    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
-    width: 100%; /* Container takes 100% of the body's width (minus body padding) */
-    /* Removed max-width: 960px; to allow it to fill more of the screen */
-    min-height: 100vh; /* <-- ADD THIS LINE */
-    background-color: #fff; /* White background for the content area */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly more pronounced shadow */
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: hidden; /* Contains floated elements (if any) and border-radius */
-    /* On very wide screens, this will stretch. You could add a max-width here if you want a limit, e.g., max-width: 1400px; */
+    overflow: hidden;
 }
 
-/* Sidebar Styling */
 .sidebar {
-    /* flex-basis: 250px; - Gives it a base size */
-    /* flex-grow: 1; - Allows it to grow */
-    /* flex-shrink: 1; - Allows it to shrink */
-    flex: 1 1 250px; /* Combined flex property: grow, shrink, base-width */
-    padding: 30px 20px; /* Adjust padding */
-    background-color: #e9e9eb; /* Distinct background color for sidebar */
-    color: #1a1a1a; /* Darker text for contrast */
-    border-right: 1px solid #ccc; /* Separator line */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    flex: 1 1 250px;
+    padding: 30px 20px;
+    background-color: #e9e9eb;
+    color: #1a1a1a;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 .sidebar h1 {
-    color: #0052cc; /* UC Berkeley blue */
-    margin-top: 0; /* Remove top margin */
+    color: #0052cc;
+    margin-top: 0;
     margin-bottom: 20px;
-    text-align: left; /* Align name to the left */
-    font-size: 1.8em; /* Slightly larger name */
+    text-align: left;
+    font-size: 1.8em;
 }
 
 /* Sidebar Navigation */
 .sidebar nav ul {
-    list-style: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar nav ul li {
-    margin-bottom: 10px; /* Space out list items */
+    margin-bottom: 10px;
 }
 
 .sidebar nav a {
-    text-decoration: none; /* Remove underline */
-    color: #0052cc; /* Link color */
+    text-decoration: none;
+    color: #0052cc;
     font-weight: bold;
-    display: block; /* Make the whole area clickable */
-    padding: 5px 0; /* Add some padding around links */
-    transition: color 0.3s ease; /* Smooth color transition on hover */
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s ease;
 }
 
 .sidebar nav a:hover {
-    color: #003399; /* Darker color on hover */
+    color: #003399;
 }
 
-/* Main Content Styling */
 .main-content {
-    /* flex-basis: 400px; - Gives it a base size */
-    /* flex-grow: 2; - Allows it to grow (twice as much as sidebar if needed) */
-    /* flex-shrink: 1; - Allows it to shrink */
-    flex: 2 1 400px; /* Main content takes more space */
-    padding: 30px; /* Padding inside the main content area */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+
+    flex: 2 1 400px;
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 .main-content h2, .main-content h3 {
@@ -93,8 +81,8 @@ body {
 }
 
 .main-content ul {
-     margin-bottom: 15px; /* Space after lists */
-     padding-left: 20px; /* Add padding for list bullets */
+     margin-bottom: 15px;
+     padding-left: 20px;
 }
 
 .main-content li {
@@ -102,7 +90,7 @@ body {
 }
 
 .main-content a {
-    color: #0052cc; /* Link color */
+    color: #0052cc;
     text-decoration: none;
 }
 
@@ -110,37 +98,35 @@ body {
     text-decoration: underline;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+        flex-direction: column;
     }
 
     .sidebar {
-        border-right: none; /* Remove vertical border */
-        border-bottom: 1px solid #ccc; /* Add horizontal border */
-        text-align: center; /* Center sidebar content */
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
     }
 
     .sidebar h1 {
-         text-align: center; /* Center name on small screens */
+         text-align: center;
     }
 
     .sidebar nav ul {
         margin-top: 15px;
-        margin-bottom: 0; /* Remove bottom margin when inline */
+        margin-bottom: 0;
     }
 
     .sidebar nav ul li {
-         display: inline-block; /* Display links inline */
-         margin: 0 10px 10px 10px; /* Add horizontal margin */
+         display: inline-block;
+         margin: 0 10px 10px 10px;
     }
 
     .main-content {
-        padding-top: 20px; /* Add some space above main content */
+        padding-top: 20px;
     }
 
-    /* Adjust body padding for smaller screens if needed */
     body {
         padding: 15px;
     }
